@@ -42,8 +42,23 @@
                     <li>{{$follower->name}}</li>
                 @endforeach
             </ul>
+            <ul>
+                @foreach($user->posts as $post)
+                    <a href="{{route('post', ['post' => $post->title])}}">{{$post->title}}</a>
+                    <br>
+                @endforeach
+            </ul>
     </div>
 </div>
 
 @endsection
+
+@push('js')
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+@endpush
 
