@@ -37,17 +37,18 @@
             @endif
         </a>
 
-            <ul>
-                @foreach($user->followers as $follower)
-                    <li>{{$follower->name}}</li>
-                @endforeach
-            </ul>
-            <ul>
-                @foreach($user->posts as $post)
-                    <a href="{{route('post', ['post' => $post->title])}}">{{$post->title}}</a>
-                    <br>
-                @endforeach
-            </ul>
+        <ul>
+            @foreach($user->followers as $follower)
+                <li>{{$follower->name}}</li>
+            @endforeach
+        </ul>
+        <div class="row row-cols-4">
+            @foreach($user->posts()->latest()->get() as $post)
+                <div class="col">
+                    @include('partials.post-card')
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
 

@@ -31,6 +31,7 @@ class PublicController extends Controller
         return view('post', compact('post'));
     }
     public function user(User $user){
+
         return view('user', compact('user'));
     }
     public function hax(Request $request){
@@ -42,7 +43,7 @@ class PublicController extends Controller
 
             // set the resulting array to associative
             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            dd($stmt->fetchAll());
+//            dd($stmt->fetchAll());
         }
     }
 }

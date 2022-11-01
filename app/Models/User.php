@@ -119,6 +119,6 @@ class User extends Authenticatable
     }
 
     public function getAmFollowingAttribute(){
-        return $this->followers()->where('follower_id', \Auth::user()->id)->exists();
+        return $this->followers()->where('follower_id', 'user_id')->exists();
     }
 }
